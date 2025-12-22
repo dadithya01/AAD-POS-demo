@@ -1,22 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Customer</title>
 </head>
-<body class="bg-[#030712]">
+
+<body class="bg-[#030712] text-white">
     <div>
-        <nav>
-            <ul class="flex space-x-5 p-5 bg-white/10 ml-150 mr-150 mt-5 text-white rounded-[50px] justify-center">
-                <li><a onclick="window.location.href ='../index.html'" class="hover:text-sky-400 cursor-pointer">Home</a></li>
-                <li><a onclick="window.location.href ='customer.html'" class="hover:text-sky-400 cursor-pointer">Customer</a></li>
-                <li><a onclick="window.location.href ='item.html'" class="hover:text-sky-400 cursor-pointer">Item</a></li>
-                <li><a onclick="window.location.href ='order.html'" class="hover:text-sky-400 cursor-pointer">Order</a></li>
+        <nav class="mx-5 mt-5 fixed left-0 right-0">
+            <ul class="flex flex-wrap justify-center items-center gap-4 p-4 bg-[#1b1f29] 
+               mx-auto max-w-4xl rounded-[30px] md:rounded-[50px] font-bold text-white">
+                <li>
+                    <a onclick="window.location.href ='../index.html'"
+                        class="px-3 py-2 transition-colors duration-200 hover:text-sky-400 cursor-pointer block">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a onclick="window.location.href ='customer.html'"
+                        class="px-3 py-2 transition-colors duration-200 hover:text-sky-400 cursor-pointer block">
+                        Customer
+                    </a>
+                </li>
+                <li>
+                    <a onclick="window.location.href ='item.html'"
+                        class="px-3 py-2 transition-colors duration-200 hover:text-sky-400 cursor-pointer block">
+                        Item
+                    </a>
+                </li>
+                <li>
+                    <a onclick="window.location.href ='order.html'"
+                        class="px-3 py-2 transition-colors duration-200 hover:text-sky-400 cursor-pointer block">
+                        Order
+                    </a>
+                </li>
             </ul>
         </nav>
+
+        <div class="min-h-screen flex items-center justify-center">
+            <div class="max-w-4xl mx-auto text-white w-300">
+                <h1 class="text-center font-bold text-[40px] underline mb-10">
+                    Customer Management
+                </h1>
+
+                <div class="bg-[#10141e] p-10 rounded-[20px] form-container">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-15">
+
+                        <div class="flex flex-col gap-2 md:col-span-2 lg:col-span-1 form-group">
+                            <label for="custId" class="text-[20px] font-bold ml-4">Customer Id</label>
+                            <input id="custId" type="text" placeholder="C001"
+                                class="p-3 rounded-[50px] w-full font-bold focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+
+                        <div class="flex flex-col gap-2 form-group">
+                            <label for="custName" class="text-[20px] font-bold ml-4">Customer Name</label>
+                            <input id="custName" type="text" placeholder="Duvindu Adithya"
+                                class="p-3 rounded-[50px] w-full font-bold focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+
+                        <div class="flex flex-col gap-2 form-group">
+                            <label for="custAddress" class="text-[20px] font-bold ml-4">Customer Address</label>
+                            <input id="custAddress" type="text" placeholder="Address"
+                                class="p-3 rounded-[50px] w-full font-bold focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                        </div>
+
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-10">
+                        <button onclick="saveCustomer()"
+                            class="bg-transparent border-2 border-indigo-600 cursor-pointer px-4 py-3 font-bold text-[18px] rounded-[50px] transition-all duration-300 hover:bg-white hover:text-black hover:border-none">
+                            Save
+                        </button>
+                        <button onclick="getCustomer()"
+                            class="bg-transparent border-2 border-indigo-600 cursor-pointer px-4 py-3 font-bold text-[18px] rounded-[50px] transition-all duration-300 hover:bg-white hover:text-black hover:border-none">
+                            Get All
+                        </button>
+                        <button onclick="updateCustomer()"
+                            class="bg-transparent border-2 border-indigo-600 cursor-pointer px-4 py-3 font-bold text-[18px] rounded-[50px] transition-all duration-300 hover:bg-white hover:text-black hover:border-none">
+                            Update
+                        </button>
+                        <button onclick="deleteCustomer()"
+                            class="bg-transparent border-2 border-indigo-600 cursor-pointer px-4 py-3 font-bold text-[18px] rounded-[50px] transition-all duration-300 hover:bg-white hover:text-black hover:border-none">
+                            Delete
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </body>
+
 </html>
