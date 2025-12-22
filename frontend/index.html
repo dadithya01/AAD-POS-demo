@@ -5,14 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>POS</title>
 </head>
-<body class="bg-[#030712]" >
+<body class="bg-[#030712] text-white" >
     <div>
-        <nav>
-            <ul class="flex space-x-5 p-5 bg-white/10 ml-150 mr-150 mt-5 text-white rounded-[50px] justify-center">
-                <li><a onclick="window.location.href ='index.html'" class="hover:text-sky-400 cursor-pointer">Home</a></li>
-                <li><a onclick="window.location.href ='pages/customer.html'" class="hover:text-sky-400 cursor-pointer">Customer</a></li>
-                <li><a onclick="window.location.href ='pages/item.html'" class="hover:text-sky-400 cursor-pointer">Item</a></li>
-                <li><a onclick="window.location.href ='pages/order.html'" class="hover:text-sky-400 cursor-pointer">Order</a></li>
+        <nav class="mx-5 mt-5 fixed left-0 right-0">
+            <ul class="flex flex-wrap justify-center items-center gap-4 p-4 bg-[#1b1f29] 
+               mx-auto max-w-4xl rounded-[30px] md:rounded-[50px] font-bold text-white">
+                <li>
+                    <a onclick="window.location.href ='index.html'"
+                        class="px-3 py-2 transition-colors duration-200 hover:text-sky-400 cursor-pointer block">
+                        Home
+                    </a>
+                </li>
+                <li>
+                    <a onclick="window.location.href ='pages/customer.html'"
+                        class="px-3 py-2 transition-colors duration-200 hover:text-sky-400 cursor-pointer block">
+                        Customer
+                    </a>
+                </li>
+                <li>
+                    <a onclick="window.location.href ='pages/item.html'"
+                        class="px-3 py-2 transition-colors duration-200 hover:text-sky-400 cursor-pointer block">
+                        Item
+                    </a>
+                </li>
+                <li>
+                    <a onclick="window.location.href ='pages/order.html'"
+                        class="px-3 py-2 transition-colors duration-200 hover:text-sky-400 cursor-pointer block">
+                        Order
+                    </a>
+                </li>
             </ul>
         </nav>
     </div>
