@@ -80,29 +80,6 @@ public class CustomerServlet extends HttpServlet {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        // resp.setContentType("text/html;charset=UTF-8");
-
-        // String sql = "SELECT * FROM Customers";
-
-        // try (Connection con = ds.getConnection();
-        // PreparedStatement ps = con.prepareStatement(sql);
-        // ResultSet rs = ps.executeQuery();
-        // PrintWriter out = resp.getWriter()) {
-
-        // while (rs.next()) {
-        // out.println(
-        // "<tr>" +
-        // "<td>" + rs.getInt("id") + "</td>" +
-        // "<td>" + rs.getString("name") + "</td>" +
-        // "<td>" + rs.getString("address") + "</td>" +
-        // "</tr>"
-        // );
-        // }
-
-        // } catch (Exception e) {
-        // resp.getWriter().println("Error: " + e.getMessage());
-        // e.printStackTrace();
-        // }
     };
 
     @Override

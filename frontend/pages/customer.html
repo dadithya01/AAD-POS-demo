@@ -183,9 +183,11 @@
                 method: 'GET',
                 success: function (response) {
                     $('#customer-list').empty()
-                    $('#customer-list').append(response)
+                    for(let customer of response){
+                    const row ="<tr><td>"+customer.cid+"</td><td>"+customer.cname+"</td><td>"+customer.caddress+"</td></tr>"
+                    $('#customer-list').append(row)
+                }
                     alert("Customers Retrieved Successfully")
-
                 },
                 error: function (error) {
                     alert(error)
