@@ -91,7 +91,7 @@
         </div>
 
         <div>
-            <table id="customer-table">
+            <table id="customerTable">
                 <thead>
                     <tr>
                         <th>Customer Id</th>
@@ -99,7 +99,7 @@
                         <th>Customer Address</th>
                     </tr>
                 </thead>
-                <tbody id="customer-list">
+                <tbody id="customerList">
 
                 </tbody>
             </table>
@@ -182,10 +182,10 @@
                 url: 'http://localhost:8080/backend/api/v1/customer',
                 method: 'GET',
                 success: function (response) {
-                    $('#customer-list').empty()
+                    $('#customerList').empty()
                     for(let customer of response){
                     const row ="<tr><td>"+customer.cid+"</td><td>"+customer.cname+"</td><td>"+customer.caddress+"</td></tr>"
-                    $('#customer-list').append(row)
+                    $('#customerList').append(row)
                 }
                     alert("Customers Retrieved Successfully")
                 },

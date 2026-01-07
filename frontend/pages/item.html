@@ -69,19 +69,19 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 mt-10 btn-group">
-                        <button onclick="saveCustomer()"
+                        <button onclick="saveItem()"
                             class="bg-transparent border-2 border-indigo-600 cursor-pointer px-4 py-3 font-bold text-[18px] rounded-[50px] transition-all duration-300 hover:bg-white hover:text-black hover:border-none">
                             Save
                         </button>
-                        <button onclick="getCustomer()"
+                        <button onclick="getAllItem()"
                             class="bg-transparent border-2 border-indigo-600 cursor-pointer px-4 py-3 font-bold text-[18px] rounded-[50px] transition-all duration-300 hover:bg-white hover:text-black hover:border-none">
                             Get All
                         </button>
-                        <button onclick="updateCustomer()"
+                        <button onclick="updateItem()"
                             class="bg-transparent border-2 border-indigo-600 cursor-pointer px-4 py-3 font-bold text-[18px] rounded-[50px] transition-all duration-300 hover:bg-white hover:text-black hover:border-none">
                             Update
                         </button>
-                        <button onclick="deleteCustomer()"
+                        <button onclick="deleteItem()"
                             class="bg-transparent border-2 border-indigo-600 cursor-pointer px-4 py-3 font-bold text-[18px] rounded-[50px] transition-all duration-300 hover:bg-white hover:text-black hover:border-none">
                             Delete
                         </button>
@@ -89,9 +89,111 @@
                 </div>
             </div>
         </div>
+        <div>
+            <table id="itemTable">
+                <thead>
+                    <tr>
+                        <th>Item Id</th>
+                        <th>Item Name</th>
+                        <th>Item Description</th>
+                    </tr>
+                </thead>
+                <tbody id="itemList">
+
+                </tbody>
+            </table>
+        </div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script>
+        window.onload(
+            getAllItem()
+        )
+
+        function saveItem() {
+            const iid = $('#itemId').val()
+            const iname = $('#itemName').val()
+            const iDesc = $('#itemDesc').val()
+            $.ajax({
+                url: 'http://localhost:8080/backend/api/v1/item',
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "iid": iid,
+                    "iname": iname,
+                    "iDesc": iDesc
+                }),
+                success: function (response) {
+                    alert(response)
+                    getAllItem()
+                },
+                error: function (error) {
+                    alert(error)
+                }
+            })
+        }
+
+        function updateItem() {
+
+            const iid = $('#itemId').val()
+            const iname = $('#itemName').val()
+            const iDesc = $('#itemDesc').val()
+            $.ajax({
+                url: 'http://localhost:8080/backend/api/v1/item',
+                method: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    "iid": iid,
+                    "iname": iname,
+                    "iDesc": iDesc
+                }),
+                success: function (response) {
+                    alert(response)
+                    getAllItem();
+                },
+                error: function (error) {
+                    alert(error)
+                }
+            })
+        }
+
+        function deleteItem() {
+            const iid = $('#itemId').val()
+            $.ajax({
+                url: 'http://localhost:8080/backend/api/v1/item?iid=' + iid,
+                method: 'DELETE',
+                success: function (response) {
+                    alert(response)
+                    getAllItem();
+                },
+                error: function (error) {
+                    alert(error)
+                }
+            })
+        }
+
+        function getAllItem() {
+            $.ajax({
+                url: 'http://localhost:8080/backend/api/v1/item',
+                method: 'GET',
+                success: function (response) {
+                    $('#itemList').empty()
+                    for(let item of response){
+                    const row ="<tr><td>"+item.iid+"</td><td>"+item.iname+"</td><td>"+item.iDesc+"</td></tr>"
+                    $('#itemList').append(row)
+                }
+                    alert("Items Retrieved Successfully")
+                },
+                error: function (error) {
+                    alert(error)
+                }
+            })
+        }
+
+    </script>
+
 </body>
 
 </html>

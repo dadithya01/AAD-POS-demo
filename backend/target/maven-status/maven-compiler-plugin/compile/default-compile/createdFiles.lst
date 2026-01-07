@@ -1,3 +1,4 @@
 CrossFilter.class
 ContextListener.class
+servlet/ItemServlet.class
 servlet/CustomerServlet.class
